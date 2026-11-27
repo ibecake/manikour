@@ -1,0 +1,28 @@
+{
+  "name": "manikour",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Manikour — mobile-first browser side-scroller (human ↔ animal via artifacts)",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "map:generate": "tsx src/map/generate.ts",
+    "typecheck": "tsc --noEmit",
+    "cf:dev": "npm run build && wrangler pages dev dist",
+    "cf:deploy": "npm run build && wrangler pages deploy dist",
+    "db:migrate:local": "wrangler d1 execute manikour-scores --local --file=./migrations/0001_scores.sql"
+  },
+  "dependencies": {
+    "phaser": "^3.87.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261127.1",
+    "@types/node": "^26.6.11",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2",
+    "vite": "^6.2.2",
+    "wrangler": "^4.4.0"
+  }
+}
