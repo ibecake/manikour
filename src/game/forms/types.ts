@@ -7,6 +7,11 @@ export interface FormStats {
   speed: number;
   /** Jump impulse (negative Y) */
   jumpVelocity: number;
+  /**
+   * Extra mid-air jumps after leaving the ground.
+   * 0 = single jump (Human); 1 = double jump (Cheetah / Frog).
+   */
+  airJumps: number;
   /** Tint for placeholder sprite */
   color: number;
   /** Short skill hint for HUD */
@@ -19,6 +24,7 @@ export const FORMS: Record<FormId, FormStats> = {
     label: "Human",
     speed: 1,
     jumpVelocity: -520,
+    airJumps: 0,
     color: 0xe8c39e,
     skillHint: "Jump",
   },
@@ -27,16 +33,18 @@ export const FORMS: Record<FormId, FormStats> = {
     label: "Cheetah",
     speed: 1.45,
     jumpVelocity: -580,
+    airJumps: 1,
     color: 0xf0a030,
-    skillHint: "Long fast jump",
+    skillHint: "Long fast double jump",
   },
   frog: {
     id: "frog",
     label: "Frog",
     speed: 0.75,
     jumpVelocity: -720,
+    airJumps: 1,
     color: 0x5ecf6a,
-    skillHint: "Long high jump",
+    skillHint: "Long high double jump",
   },
 };
 
