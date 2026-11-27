@@ -58,6 +58,7 @@ export class PlayScene extends Phaser.Scene {
     this.controls = new DualControls(this, {
       onCycle: () => this.cycleArtifact(),
       onAction: () => this.player.action(),
+      onActionRelease: () => this.player.actionReleased(),
     });
 
     this.distanceText = this.add
